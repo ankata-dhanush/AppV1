@@ -1,0 +1,14 @@
+services:
+  frontend:
+    build: ./Adobe-Assessment
+    ports:
+      - "80:80"
+
+  backend:
+    build:
+      context: ./Adobe-Backend # Path to your backend directory where the Dockerfile is located
+      dockerfile: Dockerfile # Optional: If your Dockerfile is named something else, specify it here
+    ports:
+      - "8083:8083" # Adjust the port mapping based on your Spring Boot configuration
+    environment:
+      - SPRING_PROFILES_ACTIVE=default # Optional: Any environment variables for the backend
